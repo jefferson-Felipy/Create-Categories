@@ -1,0 +1,9 @@
+.link{
+    font-size:20px;
+    text-decoration: none;
+
+    &:hover{
+        color:rgb(149, 8, 8);
+        text-decoration:underline;
+    }
+}

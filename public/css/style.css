@@ -1,0 +1,10 @@
+.link {
+  font-size: 20px;
+  text-decoration: none;
+}
+.link:hover {
+  color: rgb(149, 8, 8);
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=style.css.map */
