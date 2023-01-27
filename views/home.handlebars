@@ -1,0 +1,17 @@
+<div class="container-sm w-75">
+    <section class="container">
+        <h2 class="text-center my-3">Registro de Categorias</h2>
+    </section>
+
+    {{#each categorias}}
+    <div class="container-sm w-100 my-5 bg-light shadow-lg p-3">
+        <h4>Categoria: {{name}}</h4>
+        <p>Slug: {{slug}}</p>
+        <hr>
+        <p>Date: {{date}}</p>
+        <button class="btn btn-primary mx-2">Editar</button>
+        <button class="btn btn-danger">Excluir</button>
+    </div>
+    {{else}}
+    {{/each}}
+</div>

@@ -1,0 +1,20 @@
+<div class="container p-3 m-3">
+    <div class="erros">
+        {{#each erros}}
+            <h3>{{texto}}</h3>
+        {{/each}}
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="text-center">Formulário de cadastro de Categorias</h2>
+    <form action="/categoria/cadastro" method="post">
+        <label for="">Name:</label>
+        <input type="text" name="name">
+
+        <label for="">Slug:</label>
+        <input type="text" name="slug">
+
+        <button type="submit">cadastrar</button>
+    </form>
+</div>
