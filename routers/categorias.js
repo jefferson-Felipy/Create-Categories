@@ -14,10 +14,10 @@ Cat.post('/cadastro',(req,res) => {
     if(req.body.name == '' || typeof req.body.name == undefined || req.body.name == null){
         erros.push({texto: 'Nome incorreto!'});
     }
-    if(req.body.slug == '' || typeof req.body.slug == undefined || req.body.slug == null){
+    else if(req.body.slug == '' || typeof req.body.slug == undefined || req.body.slug == null){
         erros.push({texto: 'Slug incorreto!'});
     }
-    if(erros.lenght > 0){
+    if(erros.length > 0){
         res.render('categorys/FormCats',{erros:erros});
     }
     else{
@@ -36,7 +36,7 @@ Cat.post('/cadastro',(req,res) => {
     }
 });
 
-//Rotas responsável por alterar os dados das categorias_
+//Rotas responsável por exibir o formulário de atualização dos dados das categorias_
 Cat.get('/updateForm/:id',(req,res) => {
     Category.findOne({_id: req.params.id}).lean().then(category => {
         res.render('categorys/updateCats',{category:category});
@@ -44,6 +44,38 @@ Cat.get('/updateForm/:id',(req,res) => {
         req.flash("error_msg","Error ao exibir informacoes da categoria!: "+err);
         res.redirect('/');
     });
+});
+
+//Rota responsável por salvar as alteracoes dos dados da categoria no banco de dados_
+Cat.post('/atualizado',(req,res) => {
+    let erros = [];
+
+    if(req.body.name == '' || typeof req.body.name == undefined || req.body.name == null){
+        erros.push({texto: 'Nome incorreto!'});
+    }
+    else if(req.body.slug == '' || typeof req.body.slug == undefined || req.body.slug == null){
+        erros.push({texto: 'Slug incorreto!'});
+    }
+    if(erros.length > 0){
+        res.render('categorys/updateCats',{erros:erros});
+    }
+    else{
+        Category.findOne({_id: req.body.id}).then(category => {
+            category.name = req.body.name
+            category.slug = req.body.slug
+
+            category.save().then(() => {
+                req.flash("success_msg","Sucesso ao editar categoria!");
+                res.redirect('/');
+            }).catch(err => {
+                req.flash("error_msg","Error ao editar categoria!: "+err);
+                res.redirect('/');
+            });
+        }).catch(err => {
+            req.flash("error_msg","Error para editar as informacoes da categoria!: "+err);
+            res.redirect('/');
+        });
+    }
 });
 
 //Rota responsável por deletar as categorias do banco de dados_
