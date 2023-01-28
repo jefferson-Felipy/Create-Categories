@@ -9,9 +9,10 @@
         <p>Slug: {{slug}}</p>
         <hr>
         <p>Date: {{date}}</p>
-        <button class="btn btn-primary mx-2">Editar</button>
-        <button class="btn btn-danger">Excluir</button>
+        <a href="/categoria/updateForm/{{_id}}" class="btn btn-primary mx-2">Editar</a>
+        <a href="/categoria/deleteconfim/{{_id}}" class="btn btn-danger">Excluir</a>
     </div>
     {{else}}
+    <h5 class="text-center text-decoration-underline">Nenhuma Categoria Registrada</h5>
     {{/each}}
 </div>

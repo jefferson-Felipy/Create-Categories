@@ -1,6 +1,6 @@
 <div class="container-sm m-5 alert alert-danger" role="alert">
-  <h4 class="alert-heading">Deseja deletar a categoria {{catgoria.nome}}</h4>
+  <h4 class="alert-heading">Deseja deletar a categoria <strong class="text-decoration-underline">{{category.name}}</strong></h4>
   <hr/>
   <a href="/" class="btn btn-primary">Cancelar</a>
-  <a href="/categoria/delete" class="btn btn-success">Confirmar</a>
+  <a href="/categoria/deletado/{{category._id}}" class="btn btn-success">Confirmar</a>
 </div>

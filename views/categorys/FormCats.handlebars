@@ -6,15 +6,21 @@
     </div>
 </div>
 
-<div class="container">
-    <h2 class="text-center">Formulário de cadastro de Categorias</h2>
-    <form action="/categoria/cadastro" method="post">
-        <label for="">Name:</label>
-        <input type="text" name="name">
+     <div class="login container">
+      <h2 class="text-center text-decoration-underline">Formulário de cadastro de Categorias</h2>
 
-        <label for="">Slug:</label>
-        <input type="text" name="slug">
+      <form action="/categoria/cadastro" class="w-100  d-flex justify-content-center mt-5" method="post">
+        <div class="form-grup w-50">
+          <label class="form-label my-2" for="">Name:</label>
+          <input class="form-control fs-5 my-3 border border-dark" type="text" name="name" id="email">
 
-        <button type="submit">cadastrar</button>
-    </form>
+          <label class="form-label" for="">Slug:</label>
+          <input class="form-control fs-5 my-3 border border-dark" type="text" name="slug" id="password">
+
+          <button class="btn btn-primary w-100 my-3 fs-5" type="submit">cadastrar</button>
+        </div>
+      </form>
+    </div>
+<div class="container w-75 my-5 py-5">
+  <a href="/" class="btn btn-primary fs-4">Cancelar</a>
 </div>
