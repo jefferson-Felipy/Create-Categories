@@ -36,4 +36,46 @@ Cat.post('/cadastro',(req,res) => {
     }
 });
 
+//Rotas responsável por alterar os dados das categorias_
+Cat.get('/updateForm/:id',(req,res) => {
+    Category.findOne({_id: req.params.id}).lean().then(category => {
+        res.render('categorys/updateCats',{category:category});
+    }).catch(err => {
+        req.flash("error_msg","Error ao exibir informacoes da categoria!: "+err);
+        res.redirect('/');
+    });
+});
+
+//Rota responsável por deletar as categorias do banco de dados_
+Cat.get('/deleteconfim/:id',(req,res) => {
+    Category.findOne({_id: req.params.id}).lean().then(category => {
+        if(category){
+            res.render('categorys/DeleteCats',{category:category});
+        }
+    }).catch(err => {
+        req.flash("error_msg","Error ao exibir informacoes da categoria!: "+err);
+        res.redirect('/');
+    });
+});
+
+Cat.get('/deletado/:id',(req,res) => {
+    Category.deleteOne({_id: req.params.id}).then(() => {
+        req.flash("success_msg","Sucesso ao deletar categoria!");
+        res.redirect('/');
+    }).catch(err => {
+        req.flash("error_msg","Error ao deletar categoria!: "+err);
+        res.redirect('/');        
+    });
+});
+
+//Rota responável por listar as categorias na página de categorias_
+Cat.get('/categorias',(req,res) => {
+    Category.find().lean().sort({date: 'desc'}).then(categorys => {
+        res.render('categorys/categorys',{categorys:categorys,tam:categorys.length});
+    }).catch(err => {
+        req.flash("error_msg","Error ao deletar categoria!: "+err);
+        res.redirect('/');        
+    });
+});
+
 module.exports = Cat;
