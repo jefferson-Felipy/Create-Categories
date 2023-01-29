@@ -43,6 +43,7 @@ Aplicação capaz de criar categorias e armazena-las em um banco de dados não r
 
 ![Captura de Tela (133)](https://user-images.githubusercontent.com/119543591/215330054-48aaae81-a4db-451c-8549-ace275328ad8.png)
 
+![Captura de Tela (131)](https://user-images.githubusercontent.com/119543591/215330362-dc745df7-3f94-4eac-ae98-7e51c366b56e.png)
 
 
 <h3>Como rodar no servidor local</h3>
