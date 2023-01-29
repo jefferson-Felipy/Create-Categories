@@ -39,6 +39,10 @@ Aplicação capaz de criar categorias e armazena-las em um banco de dados não r
 
 <h2>Preview</h2>
 
+![Captura de Tela (128)](https://user-images.githubusercontent.com/119543591/215329916-1a75197d-c7bb-4347-a85b-a847a53eaf50.png)
+
+
+
 <h3>Como rodar no servidor local</h3>
 <p>Para voçe rodar essa aplicação em sua maquina, te darei duas formas, sendo a primeira mais simples e a segunda um pouco mais complexo. Vamos la?!</p>
 
